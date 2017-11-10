@@ -1,4 +1,4 @@
-package group.pro150.databaseconnetion.copy;
+package group.pro150.chatroom.databaseconn.copy;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
-public class DatabaseConetion {
+public class DatabaseConnection {
 
 	public static String DatabaseConnetionString = "jdbc:sqlserver://pro-150.database.windows.net:1433;database=Pro150;user=MCurtis@pro-150;password={Rock1000};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
 	public static final String DIRVERNAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
