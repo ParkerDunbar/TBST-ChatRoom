@@ -1,4 +1,4 @@
-package group.pro150.chatroom.databaseconn.copy;
+package group.pro150.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -29,7 +29,7 @@ public class DatabaseConnection {
 	 *            will be selected
 	 * @return the reslut of the query
 	 */
-	public static String SelectFromTable(String table, String[] columns) {
+	public static String SelectFromTable(String table, String... columns) {
 		String sql = "Select ";
 		String query = "";
 		int size = columns.length;
@@ -40,8 +40,6 @@ public class DatabaseConnection {
 					sql += ",";
 				}
 			}
-		} else {
-			sql += " * ";
 		}
 		sql += " From ";
 		sql += table;
@@ -87,7 +85,7 @@ public class DatabaseConnection {
 	 * @return
 	 */
 	public static String SelectWithWhereFromTable(String table, String whereValue, String whereEquils,
-			String[] columns) {
+			String... columns) {
 		String sql = "Select ";
 		int size = columns.length;
 		if (size > 0) {

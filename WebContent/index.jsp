@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Register</title>
+<title>Home Page</title>
 </head>
 <body>
-	<form method="post" action="registeruser">
-		<label>User Name</label> <input type="text" name="UserName"> <input
-			type="submit" name="register">
-	</form>
+	<a href="https://chatroompro.azurewebsites.net/Register">New Users
+	</a>
+	<a href="https://chatroompro.azurewebsites.net/Login">Returning
+		Users</a>
 </body>
 </html>
