@@ -1,10 +1,13 @@
 package group.pro150.chatroom.model;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
 public class User {
 	private String firstName;
 	private String lastName;
 	private String username;
-	private String password;
+	private Password password;
 	
 	
 	public String getFirstName() {
@@ -25,12 +28,19 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getPassword() {
+	public Password getPassword() {
 		return password;
 	}
-	public void setPassword(String password) {
+	public void setPassword(Password password) {
 		this.password = password;
 	}
-
+	public boolean checkPassword(String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		String encodedPassTemp = Password.hashWith256(password, this.password.randGenStr);
+		if (encodedPassTemp.equals(this.password.encodedPass)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 }

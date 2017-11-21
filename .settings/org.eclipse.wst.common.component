@@ -4,6 +4,6 @@
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <property name="java-output-path" value="/TBST-ChatRoom/build/classes"/>
-        <property name="context-root" value="TBST-Placeholder"/>
+        <property name="context-root" value="TBST-ChatRoom"/>
     </wb-module>
 </project-modules>
