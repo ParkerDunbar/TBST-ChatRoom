@@ -1,4 +1,4 @@
-package group.pro150.database;
+package group.pro150.Datastore;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
