@@ -1,0 +1,69 @@
+@charset "ISO-8859-1";
+body{
+	background-color: #141B41;
+}
+
+.panel{
+	background-color: #587291;
+	text-align: center;
+}
+html {
+	font-family: 'Nunito', sans-serif;
+}
+#buttonPanel{
+	text-align:center;
+	margin-top: 250px;
+	height: 125px;
+}
+#loginPanel{
+	width: 200px;
+	display: inline-block;
+	text-align:center;
+	border-right: 2px solid #141B41;
+	content-align: center;
+}
+#registerPanel{
+	width: 200px;
+	display: inline-block;
+	text-align:center;
+	border-left: 2px solid #141B41;
+	content-align: center;
+}
+
+.actionButton{
+	border: 3px solid #141B41;
+	height: 60;
+	width: 145px;
+	text-align: center;
+	margin: 0 auto;
+	line-height:60px;
+	font-size:26px;
+	font-family: 'Nunito: 900', sans-serif;
+}
+a{
+	text-decoration: none;
+}
+a:link{
+	color: #000;
+}
+a:visited{
+	color: #000;
+}
+a:hover{
+	color: #000;
+}
+a:active{
+	color: #000;
+}
+#span{
+	vertical-align:middle;
+	line-height:40px;
+}
+#contentPanel{
+	background-color: #141B41;
+	width: 450px;
+	height: 100vh;
+	border: 2px solid #141B41;
+	margin: 0 auto;
+	vertical-text-align: middle;
+}
