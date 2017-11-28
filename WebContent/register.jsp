@@ -7,30 +7,9 @@
 <title>Register</title>
 </head>
 <body>
-
-	<%
-		String errmsg = null;
-		if (session != null && (errmsg = (String) session.getAttribute("error-msg")) != null) {
-	%>
-	<dir style="color: red">
-		<%
-			out.print(errmsg);
-				session.removeAttribute("error-msg");
-		%>
-
-	</dir>
-	<%
-		}
-	%>
-	<form method="POST" action="RegisterUser">
-		<label>First Name</label> <input type="text" name="firstName">
-		<label>Last Name</label> <input type="text" name="lastName"> <label>User
-			Name</label> <input type="text" name="userName"> <label>Password</label>
-		<input type="password" name="password"> <label>
-			Confirm Password</label> <input type="password" name="conPassword"> <input
-			type="submit" value="Register" name="submit">
+	<form method="Post" action="Register">
+		<label>User Name</label> <input type="text" id=UN> <input
+			type="submit" id=submit value="Register">
 	</form>
-
-
 </body>
 </html>
