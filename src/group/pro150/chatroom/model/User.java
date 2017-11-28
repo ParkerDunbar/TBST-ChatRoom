@@ -10,6 +10,23 @@ public class User {
 	private Password password;
 	
 	
+	public User(String firstName, String lastName, String username, String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		Password p = new Password(password);
+		this.password = p;
+	}
+	
+	public User(String firstName, String lastName, String username, Password password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+	}
+	
 	public String getFirstName() {
 		return firstName;
 	}

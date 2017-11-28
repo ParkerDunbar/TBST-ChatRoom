@@ -10,29 +10,7 @@ public class Password {
 	String encodedPass, randGenStr;
 
 	Password(String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		randGenStr = "";
-		for (int i = 0; i < 255; i++) {
-			int randomCharacterInteger = (int) (Math.random() * 64 + 45);
-			if (randomCharacterInteger > 45) {
-				randomCharacterInteger += 2;
-			}
-			if (randomCharacterInteger > 57) {
-				randomCharacterInteger += 7;
-			}
-			if (randomCharacterInteger > 90) {
-				randomCharacterInteger += 4;
-			}
-			if (randomCharacterInteger > 95) {
-				randomCharacterInteger += 1;
-			}
-			if (randomCharacterInteger > 122) {
-				randomCharacterInteger = 45;
-			}
-			if (randomCharacterInteger < 45) {
-				randomCharacterInteger = 45;
-			}
-			randGenStr += (char) randomCharacterInteger;
-		}
+		this.randGenStr = GhostMethods.genRandBase64Str(255);
 		this.encodedPass = hashWith256(password, randGenStr);
 	}
 	
@@ -50,6 +28,7 @@ public class Password {
 			this.randGenStr = randGenStr;
 		}
 	}
+	
 
 	public String getEncodedPass() {
 		return encodedPass;
