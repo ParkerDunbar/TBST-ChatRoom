@@ -8,23 +8,9 @@
 <title>Login</title>
 </head>
 <body>
-	<%
-		String errmsg = null;
-		if (session != null && (errmsg = (String) session.getAttribute("error-msg")) != null) {
-	%>
-	<dir style="color: red">
-		<%
-			out.print(errmsg);
-				session.removeAttribute("error-msg");
-		%>
-	</dir>
-	<%
-		}
-	%>
-	<form method="POST" action="Login">
-		<label>User Name</label> <input type="text" name="userName"> <label>Password</label>
-		<input type="password" name="password"> <input type="submit"
-			value="Login" name="Submit">
+	<form method="Post" action="Login">
+		<label>User Name</label> <input id="UserName" type="text"
+			name="UserName"> <input type="submit" value="login">
 	</form>
 </body>
 </html>
