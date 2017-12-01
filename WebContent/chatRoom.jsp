@@ -4,8 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Chatroom</title>
 </head>
+<script type="text/javascript">
+	function send() {
+		Chat.sendMessage();
+	}
+</script>
 <body>
 	<%
 		String userName = (String) session.getAttribute("UserName");
@@ -16,15 +21,12 @@
  	}
  %>
 	</label>
-	<textarea id="messagelist" readonly="readonly" rows="15" cols="10"></textarea>
-	<input id="usertextentry" type="text">
 
-
-	<script src="scripts/jquery.js"></script>
-	<script src="scripts/ChatMain.js"></script>
-	<script type="scripts/MessageHandiler"></script>
-
-	<a href="/SmallChatRoom/Login">LOGIN</a>
+	<textarea id="messageOutput" readonly="readonly" rows="10" cols="15"></textarea>
+	<textarea id="onlineUsers" readonly="readonly" rows="10" cols="15"></textarea>
+	<input id="messageInput" type="text">
+	<input id="sendButton" value="Send" type="submit"
+		ondblclick="function send()">
 
 </body>
 </html>

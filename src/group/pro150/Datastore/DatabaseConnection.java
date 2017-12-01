@@ -109,7 +109,7 @@ public class DatabaseConnection {
 			Class.forName(getDRIVERNAME());
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			System.out.println(sql + "/n" + query);
+			System.out.println(sql + "\n" + query);
 		}
 		try (Connection connection = DriverManager.getConnection(getDatabaseConnetionString())) {
 			try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -128,7 +128,7 @@ public class DatabaseConnection {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println(sql + "/n" + query);
+			System.out.println(sql + "\n" + query);
 		}
 		return query;
 	}
