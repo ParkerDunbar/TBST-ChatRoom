@@ -15,7 +15,6 @@ import group.pro150.chatroom.model.User;
 @WebServlet("/ChatRoom")
 public class ChatRoom extends HttpServlet {
 	public static List<User> users;
-	public static Map<String, User> cookies;
 	
 	private static final long serialVersionUID = 1L;
 

@@ -25,10 +25,10 @@ public class Register extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String firstname = request.getParameter("firstname");
-		String lastname = request.getParameter("lastname");
+		String username = request.getParameter("Username");
+		String password = request.getParameter("Password");
+		String firstname = request.getParameter("Firstname");
+		String lastname = request.getParameter("Lastname");
 
 			for (int i = 0; i < ChatRoom.users.size(); i++) {
 				if (ChatRoom.users.get(i).getUsername().equals(username)) {
@@ -44,9 +44,9 @@ public class Register extends HttpServlet {
 			}
 			ChatRoom.users.add(u);
 			String[] values = {u.getFirstName(), u.getLastName(), null, u.getUsername(), u.getPassword().getEncodedPass(), u.getPassword().getRandGenStr()};
-			String[] columns = {"Firstname", "Lastname", "Friendlist", "Username", "Password", "RandPassword"};
+			String[] columns = {"Firstname", "Lastname", "Friendslist", "Username", "Password", "RandPassword"};
 			DatabaseConnection.InsertIntoTable("Users", values, columns);
-			session.setAttribute("UserName", username);
+			session.setAttribute("Username", username);
 			request.getRequestDispatcher("ChatRoom").forward(request, response);
 			// String[] values = { UserName };
 			// String[] columns = { "UserId", "UserName" };
