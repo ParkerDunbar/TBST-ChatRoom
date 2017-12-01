@@ -8,8 +8,11 @@
 </head>
 <body>
 	<form method="Post" action="Login">
-		<label>User Name</label> <input id="UserName" type="text"
-			name="UserName"> <input type="submit" value="login">
+		<label>Username</label> <input id="Username" type="text"
+			name="Password"> 
+			
+			<label>Password</label> <input id="Password" type="text"
+			name="Password"><input type="submit" value="login">
 	</form>
 
 </body>
