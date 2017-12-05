@@ -30,23 +30,24 @@ public class Register extends HttpServlet {
 		String firstname = request.getParameter("firstname");
 		String lastname = request.getParameter("lastname");
 
-			for (int i = 0; i < ChatRoom.users.size(); i++) {
-				if (ChatRoom.users.get(i).getUsername().equals(username)) {
-					throw new IllegalArgumentException();
-				}
-			}
+//			for (int i = 0; i < ChatRoom.users.size(); i++) {
+//				if (ChatRoom.users.get(i).getUsername().equals(username)) {
+//					throw new IllegalArgumentException();
+//				}
+//			}
 			User u = null;
 			try {
 				u = new User(firstname, lastname, username, password);
 			} catch (NoSuchAlgorithmException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-			ChatRoom.users.add(u);
+			} 
+//			ChatRoom.users.add(u);
 			String[] values = {u.getFirstName(), u.getLastName(), null, u.getUsername(), u.getPassword().getEncodedPass(), u.getPassword().getRandGenStr()};
 			String[] columns = {"Firstname", "Lastname", "Friendlist", "Username", "Password", "RandPassword"};
-			DatabaseConnection.InsertIntoTable("Users", values, columns);
+			DatabaseConnection.InsertIntoTable("UserCredentials", values, columns);
 			session.setAttribute("UserName", username);
+			
 			request.getRequestDispatcher("ChatRoom").forward(request, response);
 			// String[] values = { UserName };
 			// String[] columns = { "UserId", "UserName" };

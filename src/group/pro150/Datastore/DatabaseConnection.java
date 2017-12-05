@@ -149,7 +149,13 @@ public class DatabaseConnection {
 		sql += " Values (";
 		if (values.length > 0) {
 			for (int i = 0; i < values.length; i++) {
+				if(!(values[i] == null)) {
+					sql +="'";
+				}
 				sql += values[i];
+				if(!(values[i] == null)) {
+					sql +="'";
+				}
 				if (i != values.length - 1) {
 					sql += ",";
 				}
@@ -165,7 +171,7 @@ public class DatabaseConnection {
 		}
 		try (Connection connection = DriverManager.getConnection(getDatabaseConnetionString())) {
 			try (PreparedStatement statement = connection.prepareStatement(sql)) {
-				statement.executeQuery();
+				statement.execute();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

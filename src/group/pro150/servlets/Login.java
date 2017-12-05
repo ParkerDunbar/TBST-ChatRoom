@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import group.pro150.Datastore.DatabaseConnection;
-import group.pro150.chatroom.model.GhostMethods;
 import group.pro150.chatroom.model.User;
 
 /**
