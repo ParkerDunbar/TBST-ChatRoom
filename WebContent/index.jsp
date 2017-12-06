@@ -4,11 +4,9 @@
 <link href='style.css' rel='stylesheet' />
 <link href="https://fonts.googleapis.com/css?family=Nunito:400,900" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home Page</title>
+<title>Chit Chat - Login/Register</title>
 </head>
-<h1>Index Page</h1>
 <body>
-
 <div class='panel' id='contentPanel'>
 	<div class='panel' id='buttonPanel'>
 	<!--<img id='logo' src="<%=request.getContextPath()%>/images/ChitChatLogo.png" /> -->

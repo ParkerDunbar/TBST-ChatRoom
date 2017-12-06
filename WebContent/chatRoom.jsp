@@ -4,31 +4,55 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Chat Room</title>
 </head>
+<script type="text/javascript">
+	function send() {
+		console.log("Hello")
+		Chat.sendMessage();
+	}
+</script>
 <body>
 	<%
 		String userName = (String) session.getAttribute("UserName");
 	%>
+	<label> User Name</label>
 	<label id="userName"> <%
  	if (userName != null) {
  		out.print(userName);
  	}
  %>
 	</label>
-	<textarea id="messagelist" readonly="readonly" rows="15" cols="20"></textarea>
-	<script type="text/javascript">
-	
-	</script>
-	<input id="usertextentry" type="text">
 
+	<%
+		String RoomName = (String) session.getAttribute("RoomName");
+	%>
+	<label>Room Name</label>
+	<label id="roomName"> <%
+ 	if (RoomName != null) {
+ 		out.print(RoomName);
+ 	}
+ %>
+	</label>
+
+	<div>
+		<textarea id="messageOutput" readonly="readonly" rows="15" cols="10"></textarea>
+	</div>
+	<div>
+		<input id="messageInput" type="text"></input> <input id="sendButton"
+			value="Send" type="submit" ondblclick="function send()">
+	</div>
+	<div>
+		<textarea id="onlineUsers" readonly="readonly" rows="15" cols="10"></textarea>
+	</div>
+	<div>
+		<textarea id="friendslist" rows="15" cols="10"></textarea>
+	</div>
+
+	<a href="/Login">Login</a>
 
 	<script src="scripts/jquery.js"></script>
 	<script src="scripts/ChatMain.js"></script>
-	<script type="scripts/MessageHandiler"></script>
-
-	<a href="/SmallChatRoom/Login">LOGIN</a>
 
 </body>
 </html>
-
