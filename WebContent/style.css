@@ -6,12 +6,14 @@ body{
 .panel{
 	background-color: #587291;
 	text-align: center;
+	border-radius: 15px;
 }
 html {
 	font-family: 'Nunito', sans-serif;
+	font-size: 18px;
 }
 #buttonPanel{
-	text-align:center;
+	text-align: center;
 	margin-top: 250px;
 	height: 125px;
 }
@@ -19,26 +21,27 @@ html {
 	width: 200px;
 	display: inline-block;
 	text-align:center;
-	border-right: 2px solid #141B41;
 	content-align: center;
+	height: 70px;
 }
 #registerPanel{
 	width: 200px;
 	display: inline-block;
 	text-align:center;
-	border-left: 2px solid #141B41;
 	content-align: center;
+	height: 70px;
 }
 
 .actionButton{
 	border: 3px solid #141B41;
-	height: 60;
+	height: 60px;
 	width: 145px;
 	text-align: center;
 	margin: 0 auto;
 	line-height:60px;
 	font-size:26px;
-	font-family: 'Nunito: 900', sans-serif;
+	background-color: #757780;
+	border-radius: 7px;
 }
 a{
 	text-decoration: none;
@@ -66,4 +69,66 @@ a:active{
 	border: 2px solid #141B41;
 	margin: 0 auto;
 	vertical-text-align: middle;
+}
+#contentPanel2{
+	background-color: #141B41;
+	width: 450px;
+	height: 100vh;
+	border: 2px solid #141B41;
+	margin: 0 auto;
+	vertical-text-align: middle;
+}
+#contentPanel3{
+	background-color: #141B41;
+	width: 450px;
+	height: 100vh;
+	border: 2px solid #141B41;
+	margin: 0 auto;
+	vertical-text-align: middle;
+}
+#formPanel{
+	background-color: #587291;
+	border: 2px solid #141B41;
+	margin: 0 auto;
+	vertical-text-align: middle;
+	text-align:center;
+	margin-top: 230px;
+	height: 100px;
+	font-family: 'Nunito: 900', sans-serif;
+}
+#UsernameDiv{
+	
+	margin-top: 15px;
+}
+#PasswordDiv{
+	
+	margin-top: 2px;
+}
+label{
+	font-family: 'Nunito: 900', sans-serif;
+}
+#btnLogin{
+	
+	margin-top: 2px;
+}
+#nav{
+	background-color: #141B41;
+	width: 100%;
+	height:50px;
+}
+#btnBack{
+	float: left;
+	border: 0px solid #000;
+	background-color: #757780;
+	margin-left: 5px;
+	height:40px;
+	line-height:40px;
+	margin-top: 5px;
+}
+#regFormPanel{
+	height: 135px;
+	vertical-align:center;
+}
+p{
+	padding-top:5px;
 }
