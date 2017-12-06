@@ -10,7 +10,7 @@ public class Password {
 	String encodedPass, randGenStr;
 
 	Password(String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		this.randGenStr = genRandBase64Str(255);
+		this.randGenStr = genRandBase64Str(127);
 		this.encodedPass = hashWith256(password, randGenStr);
 	}
 	
@@ -32,24 +32,18 @@ public class Password {
 	public static String genRandBase64Str(int length) {
 		String randGenStr = "";
 		for (int i = 0; i < length; i++) {
-			int randomCharacterInteger = (int) (Math.random() * 64 + 45);
-			if (randomCharacterInteger > 45) {
-				randomCharacterInteger += 2;
-			}
+			int randomCharacterInteger = (int) (Math.random() * 64 + 47);
 			if (randomCharacterInteger > 57) {
 				randomCharacterInteger += 7;
 			}
 			if (randomCharacterInteger > 90) {
-				randomCharacterInteger += 4;
-			}
-			if (randomCharacterInteger > 95) {
-				randomCharacterInteger += 1;
+				randomCharacterInteger += 6;
 			}
 			if (randomCharacterInteger > 122) {
-				randomCharacterInteger = 45;
+				randomCharacterInteger = 57;
 			}
-			if (randomCharacterInteger < 45) {
-				randomCharacterInteger = 45;
+			if (randomCharacterInteger < 47) {
+				randomCharacterInteger = 57;
 			}
 			randGenStr += (char) randomCharacterInteger;
 		}
@@ -89,6 +83,9 @@ public class Password {
 		byte[] byteOfTextToHash = textToHash.getBytes("UTF-8");
 		byte[] hashedByetArray = digest.digest(byteOfTextToHash);
 		String encoded = Base64.encode(hashedByetArray);
+		encoded = encoded.replaceAll("\\+", "");
+		encoded = encoded.replaceAll("\\/", "");
+		encoded = encoded.replaceAll("=", "");
 		return encoded;
 	}
 }

@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import group.pro150.Datastore.DatabaseConnection;
-import group.pro150.chatroom.model.GhostMethods;
 import group.pro150.chatroom.model.User;
 
 /**
@@ -69,7 +68,7 @@ public class Login extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		Cookie cookie = new Cookie("Username", username);
+		Cookie cookie = new Cookie("username", username);
 		cookie.setMaxAge(60 * 60 * 24);
 		response.addCookie(cookie);
 

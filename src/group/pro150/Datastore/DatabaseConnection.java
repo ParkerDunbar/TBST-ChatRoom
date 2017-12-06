@@ -132,6 +132,55 @@ public class DatabaseConnection {
 		}
 		return query;
 	}
+	
+	
+	public static String SelectFriendsList(String table, String whereValue, String whereEquils,
+			String... columns) {
+		String sql = "Select ";
+		int size = columns.length;
+		if (size > 0) {
+			for (int i = 0; i < columns.length; i++) {
+				sql += columns[i];
+				if (i != size - 1) {
+					sql += ",";
+				}
+			}
+		} else {
+			sql += " * ";
+		}
+		sql += " From ";
+		sql += table;
+		sql += " Where ";
+		sql += whereValue;
+		sql += " = '";
+		sql += whereEquils;
+		sql += "'";
+		String query = "";
+		System.out.println(sql + " :SQL");
+		try {
+			Class.forName(getDRIVERNAME());
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println(sql + "\n" + "Driver");
+		}
+		try (Connection connection = DriverManager.getConnection(getDatabaseConnetionString())) {
+			try (PreparedStatement statement = connection.prepareStatement(sql)) {
+				try (ResultSet resultSet = statement.executeQuery()) {
+					ResultSetMetaData rMetaData = resultSet.getMetaData();
+					int columnLength = rMetaData.getColumnCount();
+					while (resultSet.next()) {
+						query = resultSet.getString(columnLength);
+					}
+					connection.close();
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(sql + "\n" + query);
+		}
+		System.out.println(query + ":query");
+		return query;
+	}
 
 	public static boolean InsertIntoTable(String table, String[] values, String[] columns) {
 		String sql = "Insert into " + table + " (";
@@ -149,7 +198,13 @@ public class DatabaseConnection {
 		sql += " Values (";
 		if (values.length > 0) {
 			for (int i = 0; i < values.length; i++) {
+				if(!(values[i] == null)) {
+					sql +="'";
+				}
 				sql += values[i];
+				if(!(values[i] == null)) {
+					sql +="'";
+				}
 				if (i != values.length - 1) {
 					sql += ",";
 				}
@@ -165,7 +220,7 @@ public class DatabaseConnection {
 		}
 		try (Connection connection = DriverManager.getConnection(getDatabaseConnetionString())) {
 			try (PreparedStatement statement = connection.prepareStatement(sql)) {
-				statement.executeQuery();
+				statement.execute();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
