@@ -2,16 +2,21 @@
 body{
 	background-color: #141B41;
 }
-
-.panel{
+.panel2{
 	background-color: #587291;
 	text-align: center;
 }
+.panel{
+	background-color: #587291;
+	text-align: center;
+	border-radius: 15px;
+}
 html {
 	font-family: 'Nunito', sans-serif;
+	font-size: 18px;
 }
 #buttonPanel{
-	text-align:center;
+	text-align: center;
 	margin-top: 250px;
 	height: 125px;
 }
@@ -19,26 +24,38 @@ html {
 	width: 200px;
 	display: inline-block;
 	text-align:center;
-	border-right: 2px solid #141B41;
 	content-align: center;
+	height: 70px;
 }
 #registerPanel{
 	width: 200px;
 	display: inline-block;
 	text-align:center;
-	border-left: 2px solid #141B41;
 	content-align: center;
+	height: 70px;
 }
-
+.actionButton2{
+	border: 3px solid #141B41;
+	height: 30px;
+	width: 145px;
+	text-align: center;
+	margin: 0 auto;
+	line-height:30px;
+	font-size:18px;
+	background-color: #306BAC;
+	border-radius: 7px;
+}
 .actionButton{
 	border: 3px solid #141B41;
-	height: 60;
+	height: 60px;
 	width: 145px;
 	text-align: center;
 	margin: 0 auto;
 	line-height:60px;
 	font-size:26px;
-	font-family: 'Nunito: 900', sans-serif;
+	background-color: #306BAC;
+	border-radius: 7px;
+	box-shadow: 2px 3px #000;
 }
 a{
 	text-decoration: none;
@@ -66,4 +83,138 @@ a:active{
 	border: 2px solid #141B41;
 	margin: 0 auto;
 	vertical-text-align: middle;
+}
+#contentPanel2{
+	background-color: #141B41;
+	width: 450px;
+	height: 100vh;
+	border: 2px solid #141B41;
+	margin: 0 auto;
+	vertical-text-align: middle;
+}
+#contentPanel3{
+	background-color: #141B41;
+	width: 450px;
+	height: 100vh;
+	border: 2px solid #141B41;
+	margin: 0 auto;
+	vertical-text-align: middle;
+	text-align: center;
+}
+#formPanel{
+	background-color: #587291;
+	border: 2px solid #141B41;
+	margin: 0 auto;
+	vertical-text-align: middle;
+	text-align:center;
+	margin-top: 200px;
+	height: 100px;
+}
+#UsernameDiv{
+	
+	margin-top: 15px;
+}
+#PasswordDiv{
+	
+	margin-top: 2px;
+}
+#btnLogin{
+	
+	margin-top: 2px;
+}
+#nav{
+	background-color: #141B41;
+	width: 100%;
+	height:50px;
+}
+#btnBack{
+	float: left;
+	border: 0px solid #000;
+	background-color: #306BAC;
+	margin-left: 5px;
+	height:40px;
+	line-height:40px;
+	margin-top: 5px;
+}
+#regFormPanel{
+	height: 150px;
+	vertical-align:center;
+	text-align: center;
+	margin-top: 200px;
+	padding-top: 3px;
+}
+p{
+	padding-top:5px;
+}
+.regLine{
+	padding-top: 3px;
+}
+#leftPanel{
+	float:left;
+	width:250px;
+	height: 100vh;
+	padding-top: 30px;
+	border: 2px solid #000;
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+#helloDiv{
+	display:inline-block;
+}
+#friendsDiv{
+	padding-bottom: 25px;
+	border-bottom: 2px solid #000;
+}
+#usersDiv{
+	padding-top: 25px;
+}
+#profileLink{
+	display:inline-block;
+	height: 30px;
+	width: 65px;
+	clear: right;
+	margin-left: 600px;
+}
+#topBarDiv{
+	height: 55px;
+	line-height: 55px;
+	vertical-align:center;
+	border: 2px solid #000;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+textarea{
+	background-color: #757780;
+	scrollbar-base-color: #009BD8;
+	scrollbar-track-color: #6CCFF6;
+	scrollbar-highlight-color: #306BAC;
+	scrollbar-shadow-color: #306BAC;
+	scrollbar-3dlight-color: #306BAC;
+	scrollbar-darkshadow-color: #306BAC;
+	border: 1px solid #000;
+}
+#roomNameDiv{
+	background-color: #757780;
+	border-left: 2px solid #000;
+	border-right: 2px solid #000;
+	border-bottom: 2px solid #000;
+	text-align: center;
+	border-bottom-right-radius: 6px;
+}
+#mainMessageDiv{
+	padding-top: 15px;
+	text-align: center;
+}
+#messageOutDiv{
+	padding-top: 35px;
+}
+#messageInput{
+	height: 30px;
+	width: 400px;
+	word-break: break-word;
+	border: 1px solid #000;
+}
+#sendButton{
+	height: 30px;
 }
