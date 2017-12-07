@@ -55,6 +55,9 @@
  		%>
 		</label>
 	</div>
+
+	<a href="/Login">Login</a>
+
 	<div id='mainMessageDiv'>
 		<textarea id="messageOutput" readonly="readonly" rows="25" cols="90"></textarea>
 		<div id="messageOutDiv">

@@ -57,7 +57,7 @@ public class DatabaseConnection {
 					while (resultSet.next()) {
 						for (int i = 1; i <= columnLength; i++) {
 							query += resultSet.getString(i);
-							if (i > 0) {
+							if (i > 1) {
 								query += ",";
 							}
 						}
@@ -236,3 +236,4 @@ public class DatabaseConnection {
 	}
 
 }
+

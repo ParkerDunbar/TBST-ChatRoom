@@ -71,8 +71,8 @@ public class Login extends HttpServlet {
 		Cookie cookie = new Cookie("username", username);
 		cookie.setMaxAge(60 * 60 * 24);
 		response.addCookie(cookie);
-
-		session.setAttribute("Username", username);
+		
+		session.setAttribute("UserName", username);
 		request.getRequestDispatcher("chatRoom.jsp").forward(request, response);
 
 	}

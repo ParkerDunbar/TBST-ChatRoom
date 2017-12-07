@@ -24,38 +24,30 @@ public class Register extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		HttpSession session = request.getSession(true);
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String firstname = request.getParameter("firstname");
 		String lastname = request.getParameter("lastname");
 
-//			for (int i = 0; i < ChatRoom.users.size(); i++) {
-//				if (ChatRoom.users.get(i).getUsername().equals(username)) {
-//					throw new IllegalArgumentException();
-//				}
-//			}
-			User u = null;
-			try {
-				u = new User(firstname, lastname, username, password);
-			} catch (NoSuchAlgorithmException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} 
-//			ChatRoom.users.add(u);
-			String[] values = {u.getFirstName(), u.getLastName(), null, u.getUsername(), u.getPassword().getEncodedPass(), u.getPassword().getRandGenStr()};
-			String[] columns = {"Firstname", "Lastname", "Friendlist", "Username", "Password", "RandPassword"};
-			DatabaseConnection.InsertIntoTable("UserCredentials", values, columns);
-			session.setAttribute("UserName", username);
-			
-			request.getRequestDispatcher("ChatRoom").forward(request, response);
-			// String[] values = { UserName };
-			// String[] columns = { "UserId", "UserName" };
-			//
-			// if (DatabaseConnection.InsertIntoTable("UserCredentials", values, columns)) {
-			// //request.getRequestDispatcher("login.jsp").forward(request, response);
-			// }
+		User u = null;
+		try {
+			u = new User(firstname, lastname, username, password);
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		
 
+		String[] values = { u.getFirstName(), u.getLastName(), null, u.getUsername(), u.getPassword().getEncodedPass(),
+				u.getPassword().getRandGenStr() };
+		String[] columns = { "Firstname", "Lastname", "Friendlist", "Username", "Password", "RandPassword" };
+		DatabaseConnection.InsertIntoTable("UserCredentials", values, columns);
+
+		if (username != null) {
+			session.setAttribute("current", u);
+			response.sendRedirect("Profile");
+		}
 	}
 
 }
