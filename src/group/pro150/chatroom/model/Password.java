@@ -32,7 +32,7 @@ public class Password {
 	public static String genRandBase64Str(int length) {
 		String randGenStr = "";
 		for (int i = 0; i < length; i++) {
-			int randomCharacterInteger = (int) (Math.random() * 64 + 47);
+			int randomCharacterInteger = (int) (Math.random() * 62 + 48);
 			if (randomCharacterInteger > 57) {
 				randomCharacterInteger += 7;
 			}
@@ -40,10 +40,10 @@ public class Password {
 				randomCharacterInteger += 6;
 			}
 			if (randomCharacterInteger > 122) {
-				randomCharacterInteger = 57;
+				randomCharacterInteger = 48;
 			}
-			if (randomCharacterInteger < 47) {
-				randomCharacterInteger = 57;
+			if (randomCharacterInteger < 48) {
+				randomCharacterInteger = 48;
 			}
 			randGenStr += (char) randomCharacterInteger;
 		}
