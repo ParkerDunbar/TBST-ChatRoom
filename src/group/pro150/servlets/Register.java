@@ -26,10 +26,10 @@ public class Register extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession(true);
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String firstname = request.getParameter("firstname");
-		String lastname = request.getParameter("lastname");
+		String username = request.getParameter("Username");
+		String password = request.getParameter("Password");
+		String firstname = request.getParameter("Firstname");
+		String lastname = request.getParameter("Lastname");
 
 		User u = null;
 		try {
