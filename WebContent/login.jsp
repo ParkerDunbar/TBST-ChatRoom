@@ -4,6 +4,7 @@
 <html>
 <head>
 <link href='style.css' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css?family=Nunito:400,900" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
 </head>

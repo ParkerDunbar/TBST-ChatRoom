@@ -21,15 +21,11 @@
 <div id='contentPanel3' class='panel'>
 	<div id='regFormPanel' class='panel'>
 	<form method="Post" action="Register">
-		<label>Username: </label> <input type="text" id="Username" name="Username">
-		<br>
-		<label>Password: </label> <input type="password" id="Password" name="Password">
-		<br>
-		<label>First Name: </label> <input type="text" id="Firstname" name="Firstname">
-		<br>
-		<label>Last Name: </label> <input type="text" id="Lastname" name="Lastname">
-		<br>
-		 <input type="submit" id=submit value="Register">
+		<div class = 'regLine'><span>Username: </span> <input type="text" id="Username" name="Username"></div>
+		<div class = 'regLine'><span>Password: </span> <input type="password" id="Password" name="Password"></div>
+		<div class = 'regLine'><span>First Name: </span> <input type="text" id="Firstname" name="Firstname"></div>
+		<div class = 'regLine'><span>Last Name: </span> <input type="text" id="Lastname" name="Lastname"></div>
+		<div class = 'regLine'><input type="submit" id=submit value="Register"></div>
 	</form>
 	</div>
 	
