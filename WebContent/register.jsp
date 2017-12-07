@@ -8,16 +8,13 @@
 </head>
 <body>
 	<form method="Post" action="Register">
-		<label>User Name</label> <input type="text" id="username" name="username">
-		<br>
-		<label>Password</label> <input type="password" id="password" name="password">
-		<br>
-		<label>First Name</label> <input type="text" id="firstname" name="firstname">
-		<br>
-		<label>Last Name</label> <input type="text" id="lastname" name="lastname">
-		<br>
-		 <input
-			type="submit" id=submit value="Register">
+		<label>User Name</label> <input type="text" id="username"
+			name="username"> <br> <label>Password</label> <input
+			type="password" id="password" name="password"> <br> <label>First
+			Name</label> <input type="text" id="firstname" name="firstname"> <br>
+		<label>Last Name</label> <input type="text" id="lastname"
+			name="lastname"> <br> <input type="submit" id=submit
+			value="Register">
 	</form>
 </body>
 </html>

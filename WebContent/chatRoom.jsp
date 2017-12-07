@@ -45,9 +45,6 @@
 	<div>
 		<textarea id="onlineUsers" readonly="readonly" rows="15" cols="10"></textarea>
 	</div>
-	<div>
-		<textarea id="friendslist" rows="15" cols="10"></textarea>
-	</div>
 
 	<a href="/Login">Login</a>
 
