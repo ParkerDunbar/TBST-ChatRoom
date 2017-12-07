@@ -38,12 +38,6 @@
 			<artifactId>javax.json-api</artifactId>
 			<version>1.0</version>
 		</dependency>
-		<dependency>
-        	<groupId>javax.servlet</groupId>
-        	<artifactId>javax.servlet-api</artifactId>
-        	<version>3.0.1</version>
-        	<scope>provided</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>org.glassfish</groupId>
@@ -72,8 +66,7 @@
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>mssql-jdbc</artifactId>
-			<version>6.2.2.jre8</version>
-			<scope>test</scope>
+			<version>6.2.1.jre8</version>
 		</dependency>
 
 
