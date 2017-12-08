@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import group.pro150.Datastore.DatabaseConnection;
 import group.pro150.chatroom.model.User;
 
+//Comp ~needs Error 
 /**
  * Servlet implementation class Login
  */
@@ -23,23 +24,7 @@ public class Login extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession(true);
-		
-		Cookie[] cookies = request.getCookies();
-		String username = null;
-		for (Cookie c : cookies) {
-			if ("_username".equals(c.getName())) {
-				username = c.getValue();
-				break;
-			}
-		}
-
-		if (username == null) {
-			// Not Logged in. Redirect to Login
-			request.getRequestDispatcher("login.jsp").forward(request, response);
-		}
-		session.setAttribute("Username", username);
-		request.getRequestDispatcher("chatRoom.jsp").forward(request, response);
+		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -47,34 +32,33 @@ public class Login extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		String username = request.getParameter("Username");
 		String password = request.getParameter("Password");
-
-		User u;
-		int spot = -1;
-		for (int i = 0; i < ChatRoom.users.size(); i++) {
-			if (ChatRoom.users.get(i).getUsername().equals("usernameInput")) {
-				spot = i;
+		if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		} else {
+			String[] columns = { "Firstname", "Lastname", "Friendlist", "Username", "Password" };
+			String sql = DatabaseConnection.SelectWithWhereFromTable("userCredentials", "UserName", username, columns);
+			if (!sql.isEmpty()) {
+				String c = "Password";
+				String p = DatabaseConnection.SelectWithWhereFromTable("UserCredentials", "Password", password, c);
+				if (p.equals(password)) {
+					String[] s = { "FirstName" };
+					String firstName = DatabaseConnection.SelectWithWhereFromTable("UserCredentials", "UserName",
+							username, s);
+					String[] l = { "lastname" };
+					String lastname = DatabaseConnection.SelectWithWhereFromTable("UserCredentials", "UserName",
+							username, l);
+					try {
+						User u = new User(firstName, lastname, username, password);
+						session.setAttribute("current", u);
+					} catch (NoSuchAlgorithmException e) {
+						e.printStackTrace();
+					}
+					response.sendRedirect("Profile");
+				}
+			} else {
+				request.getRequestDispatcher("register.jsp");
 			}
 		}
-		if (spot == -1) {
-			throw new IllegalArgumentException();
-		}
-		u = ChatRoom.users.get(spot);
-		try {
-			if (!u.checkPassword(password)) {
-				throw new IllegalArgumentException();
-			}
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		Cookie cookie = new Cookie("username", username);
-		cookie.setMaxAge(60 * 60 * 24);
-		response.addCookie(cookie);
-		
-		session.setAttribute("UserName", username);
-		request.getRequestDispatcher("chatRoom.jsp").forward(request, response);
-
 	}
 
 }

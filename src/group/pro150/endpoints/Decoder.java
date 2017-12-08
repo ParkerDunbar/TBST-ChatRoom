@@ -80,7 +80,6 @@ public class Decoder implements javax.websocket.Decoder.Text<Message> {
 			Json.createReader((new StringReader(message)));
 			return true;
 		} catch (Exception e) {
-			System.out.println("false");
 			return false;
 		}
 	}

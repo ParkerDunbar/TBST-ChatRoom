@@ -104,7 +104,7 @@ Chat.sendMessage = function() {
 
 }
 Chat.initialize = function() {
-	var ep = '/endpoint/';
+	var ep = '/SmallChatRoom/endpoint/';
 	var roomName = document.getElementById('roomName').textContent.trim()
 	if (window.location.protocol == 'http:') {
 		Chat.connect('ws://' + window.location.host + ep + roomName);

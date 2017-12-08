@@ -9,7 +9,8 @@
 <html>
 <head>
 <link href='style.css' rel='stylesheet'>
-<link href="https://fonts.googleapis.com/css?family=Nunito:400,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nunito:400,900"
+	rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Profile</title>
 </head>
@@ -23,23 +24,22 @@
 	<H3>
 		Last Name:
 		<%=current.getLastName()%></H3>
-		
-		
+
+
 	<H3>Friends List:</H3>
 	<div>
 		<textarea id="friendslist" rows="15" cols="10"></textarea>
 	</div>
-	
+
 	<hr>
-	
-	<input type="button" id="mainroom" value="Main Room">
 	<br>
 	<label>Create a private chat room</label>
 	<br>
-	<input type="text" id="roomname" name="roomname">
-	<input type="submit" id=submit value="Create Room">
-	<input type="submit" id=submit value="Join Room">
-
+	<form method="Post" action="Profile">
+		<input type="text" id="RoomName" name="RoomName"> <input
+			type="submit" id=submit value="Create Room"> <input
+			type="submit" id=submit value="Join Room">
+	</form>
 
 </body>
 </html>

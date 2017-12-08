@@ -103,7 +103,9 @@ public class DatabaseConnection {
 		sql += " Where ";
 		sql += whereValue;
 		sql += " = ";
-		sql = whereEquils;
+		sql += "'";
+		sql += whereEquils;
+		sql += "'";
 		String query = "";
 		try {
 			Class.forName(getDRIVERNAME());
@@ -117,7 +119,7 @@ public class DatabaseConnection {
 					ResultSetMetaData rMetaData = resultSet.getMetaData();
 					int columnLength = rMetaData.getColumnCount();
 					while (resultSet.next()) {
-						for (int i = 1; i >= columnLength; i++) {
+						for (int i = 1; i <= columnLength; i++) {
 							query += resultSet.getString(i);
 							if (i > 1) {
 								query += ",";
@@ -130,12 +132,12 @@ public class DatabaseConnection {
 			e.printStackTrace();
 			System.out.println(sql + "\n" + query);
 		}
+		System.out.println(query);
+		System.out.println(sql);
 		return query;
 	}
-	
-	
-	public static String SelectFriendsList(String table, String whereValue, String whereEquils,
-			String... columns) {
+
+	public static String SelectFriendsList(String table, String whereValue, String whereEquils, String... columns) {
 		String sql = "Select ";
 		int size = columns.length;
 		if (size > 0) {
@@ -198,12 +200,12 @@ public class DatabaseConnection {
 		sql += " Values (";
 		if (values.length > 0) {
 			for (int i = 0; i < values.length; i++) {
-				if(!(values[i] == null)) {
-					sql +="'";
+				if (!(values[i] == null)) {
+					sql += "'";
 				}
 				sql += values[i];
-				if(!(values[i] == null)) {
-					sql +="'";
+				if (!(values[i] == null)) {
+					sql += "'";
 				}
 				if (i != values.length - 1) {
 					sql += ",";
@@ -236,4 +238,3 @@ public class DatabaseConnection {
 	}
 
 }
-

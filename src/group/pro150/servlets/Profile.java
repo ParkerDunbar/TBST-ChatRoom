@@ -22,14 +22,26 @@ public class Profile extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession(true);
 		request.getRequestDispatcher("profile.jsp").forward(request, response);
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		HttpSession session = request.getSession(true);
+		String roomName = request.getParameter("RoomName");
+		User u = (User) session.getAttribute("current");
+		if (roomName == null || roomName.isEmpty()) {
+			roomName = "TEST";
+			System.out.println(roomName);
+			session.setAttribute("UserName", u.getUsername());
+			session.setAttribute("RoomName", roomName);
+		} else {
+			System.out.println(roomName);
+			session.setAttribute("UserName", u.getUsername());
+			session.setAttribute("RoomName", roomName);
+		}
+		response.sendRedirect("ChatRoom");
 	}
 
 }
