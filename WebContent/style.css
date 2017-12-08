@@ -218,3 +218,10 @@ textarea{
 #sendButton{
 	height: 30px;
 }
+#profileContent{
+	width: 250px;
+	background-color: #757780;
+}
+#userInfoPanel{
+	background-color: #757780;
+}
