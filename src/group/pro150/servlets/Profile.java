@@ -2,6 +2,7 @@ package group.pro150.servlets;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.omg.PortableInterceptor.INACTIVE;
 
 import group.pro150.Datastore.DatabaseConnection;
 import group.pro150.chatroom.model.User;
@@ -28,7 +31,8 @@ public class Profile extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession();
+		System.out.println(session.getId());
 		String roomName = request.getParameter("RoomName");
 		User u = (User) session.getAttribute("current");
 		if (roomName == null || roomName.isEmpty()) {

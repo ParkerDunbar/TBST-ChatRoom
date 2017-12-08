@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import group.pro150.chatroom.model.User;
 
@@ -16,11 +17,13 @@ import group.pro150.chatroom.model.User;
 public class ChatRoom extends HttpServlet {
 	public static List<User> users;
 	public static Map<String, User> cookies;
-	
+
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession(true);
+		System.out.println(session.getId());
 		request.getRequestDispatcher("chatRoom.jsp").forward(request, response);
 	}
 

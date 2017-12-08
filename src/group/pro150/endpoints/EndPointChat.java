@@ -26,7 +26,6 @@ import group.pro150.model.server.messages.Friends_List_Message;
 import group.pro150.model.server.messages.Message_List_Message;
 import group.pro150.model.server.messages.Online_Users_Message;
 
-
 @ServerEndpoint(value = "/endpoint/{RoomName}", encoders = Encoder.class, decoders = Decoder.class)
 public class EndPointChat {
 	private static Map<String, List<EndPointChat>> users = new HashMap<>();
@@ -54,6 +53,14 @@ public class EndPointChat {
 		System.out.println(r);
 		List<EndPointChat> clients = users.get(roomName);
 		clients.remove(this);
+		try {
+			session.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		if (clients.size() == 0) {
+			users.remove(roomName, clients);
+		}
 	}
 
 	@OnMessage
