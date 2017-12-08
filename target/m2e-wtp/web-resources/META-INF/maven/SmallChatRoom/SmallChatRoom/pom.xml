@@ -38,7 +38,7 @@
 			<artifactId>javax.json-api</artifactId>
 			<version>1.0</version>
 		</dependency>
-<dependency>
+		<dependency>
         	<groupId>javax.servlet</groupId>
         	<artifactId>javax.servlet-api</artifactId>
         	<version>3.0.1</version>
